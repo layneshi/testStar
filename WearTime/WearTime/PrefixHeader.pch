@@ -1,0 +1,52 @@
+//
+//  PrefixHeader.pch
+//  WearTime
+//
+//  Created by layne on 2023/7/5.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "Masonry.h"
+#import <QMUIKit/QMUIKit.h>
+#import <YYCategories/YYCategories.h>
+#import "SVProgressHUD.h"
+#import "WHEnum.h"
+#import "WHBaseNavigationViewController.h"
+#import "WHBaseViewController.h"
+#import "WHWearTimeApi.h"
+#import "WHLoginModel.h"
+#import "WHUserInfo.h"
+#import "NSObject+SLModel.h"
+#import "WHTools.h"
+#import "WHThirdEnum.h"
+#import "WHGetHealthyKit.h"
+
+
+#define WHUserToken    @"token"
+#define GET_KTToken  [[NSUserDefaults standardUserDefaults] objectForKey:WHUserToken]
+
+#define ColorHex(colorHex)    [UIColor qmui_colorWithHexString:colorHex]
+#define Font(f)               [UIFont systemFontOfSize:f]
+#define WHBaseTextColor  [UIColor colorWithHexString:@"#3478F3"]
+#define KSWIDTH        UIScreen.mainScreen.bounds.size.width
+#define KSHEIGHT       UIScreen.mainScreen.bounds.size.height
+
+#define kWidth(x) ((x)*(KSWIDTH)/375.0)
+#define kHeight(y) ((y)*(KSHEIGHT)/667.0)
+#define IsIphoneX   (KSHEIGHT == 896 || KSHEIGHT == 812)
+
+//区分横竖屏
+#define IS_Portrait ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown)
+
+///导航栏高度
+#define kNavBarHeight (IsIphoneX ? 88.f : 64.f)
+#define KSafeBottomHeight  (IsIphoneX ? 34.f : 10.f)
+#define KStatusBarHeight   (IsIphoneX ? 44.f : 20.f)
+
+
+#endif /* PrefixHeader_pch */
